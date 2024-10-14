@@ -1,9 +1,9 @@
 import axios from 'axios'
-const baseUrl = 'https://api.github.com'
+const baseUrl = 'https://api.github.com/users'
 
-const getAll = () => {
-    const request = axios.get(baseUrl)
+const getUser = (username) => {
+    const request = axios.get(`${baseUrl}/${username}`)
     return request.then(response => response.data)
 }
 
-export default { getAll }
+export default { getUser }

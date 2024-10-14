@@ -2,32 +2,31 @@ import { useEffect, useState } from 'react'
 import './App.css'
 
 import Header from './components/Header'
+import Container from './components/Container'
 
 import services from './services/profiles'
 
 function App() {
 
   const [keyword, setKeyword] = useState('')
-  const [profiles, setProfiles] = useState([])
+  const [profile, setProfile] = useState([])
 
-  useEffect(() => {
+  const handleFilterChange = (event) => {
+    setKeyword(event.target.value)
+    
     services
-      .getAll()
-      .then(initialProfiles => 
-        setProfiles(initialProfiles)
+      .getUser(keyword)
+      .then(response => {
+        setProfiles(response.data)
       )
-      .catch(error => 
-        console.log("ERROR obtaining the data")
-      )
-  }, [])
-
-  const handleFilterChange = (event) => setKeyword(event.target.value)
+  } 
 
   // const filteredProfiles = profiles.filter()
 
   return (
     <body>
       <Header filter={keyword} handleFilterChange={handleFilterChange}/>
+      <Container />
     </body>
   )
 }

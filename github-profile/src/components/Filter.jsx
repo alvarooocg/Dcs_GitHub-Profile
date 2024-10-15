@@ -1,16 +1,16 @@
 import SearchLogo from '../assets/dccl--javascript-github-profile/dccl--javascript-github-profile/Search.svg'
 import logo from '../assets/github_logo.png'
 
-const Filter = ({ filter, handleFilterChange }) => 
-    <form class="header__form">
-        <div class="form__filterbox">
-            <div class="filterbox__container--img">
-                <img src={SearchLogo} alt="Search logo" class="filterbox__img" />
+const Filter = ({ filter, handleFilterChange, profile }) => 
+    <form className="header__form">
+        <div className="form__filterbox">
+            <div className="filterbox__container--img">
+                <img src={SearchLogo} alt="Search logo" className="filterbox__img" />
             </div>
             
-            <div class="filterbox__container--input">
+            <div className="filterbox__container--input">
                 <input 
-                    class="filterbox__input"
+                    className="filterbox__input"
                     type="text"
                     onChange={handleFilterChange}
                     value={filter}
@@ -18,11 +18,11 @@ const Filter = ({ filter, handleFilterChange }) =>
             </div>
         </div>
 
-        <div class="form__result">
-            <img src={logo} alt="Profile photo" class="result__img" />
+        <div className="form__result">
+            <img src={profile.avatar_url} alt="Profile photo" className="result__img" />
             <div className="result__text">
-                <p className="text__username">GitHub</p>
-                <p className="text__description">How people build software.</p>
+                <p className="text__username">{profile.login}</p>
+                <p className="text__description">{profile.bio}</p>
             </div>
         </div>
     </form>

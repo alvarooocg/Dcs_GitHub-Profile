@@ -7,13 +7,11 @@
 html {
   font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 16px;
-
-  
 }
 
 .body {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .header {
@@ -101,6 +99,8 @@ html {
 
   background-color: #111729;
 
+  visibility: hidden;
+
   display: flex;
   align-items: center;
   padding: 10px;
@@ -132,6 +132,10 @@ html {
   color: #CDD5E0;
   font-size: 0.75rem;
   opacity: 0.8;
+}
+
+.filterbox__input:focus + .form__result  {
+  visibility: visible;
 }
 
 .container {
@@ -194,6 +198,8 @@ html {
 
   background-color: #111729;
   border-radius: 10px;
+
+  height: 50px;
 }
 
 .wrapper__text {

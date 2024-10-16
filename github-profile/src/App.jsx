@@ -4,36 +4,32 @@ import './App.css'
 import Header from './components/Header'
 import Container from './components/Container'
 
-import services from './services/profiles'
-
 function App() {
 
   const [keyword, setKeyword] = useState('github')
   const [profile, setProfile] = useState({})
-  const [repos, setRepos] = useState()
+  const [repos, setRepos] = useState([])
 
   useEffect(() => {
-    services 
-      .getUser(keyword)
-      .then(
-        gitProfile => {
-          console.log(gitProfile)
-          setProfile(gitProfile)
-        })
-      .catch(error => 
+     fetch(`https://api.github.com/users/${keyword}`)
+      .then(response => response.json())
+      .then(data => {
+        setProfile(data)
+      })
+      .catch(error => {
         console.log(error)
-      )
+      })
   }, [keyword])
 
   useEffect(() => {
-    services
-      .getRepos(keyword)
-      .then(
-        gitRepos => setRepos([gitRepos][0].slice(0, 4))
-      )
-      .catch(error => 
-        console.log(error)
-      )
+    fetch(`https://api.github.com/users/${keyword}/repos`)
+    .then(response => response.json())
+    .then(data => {
+      setRepos([data][0].slice(0, 4))
+    })
+    .catch(error => {
+      console.log(error)
+    })
   }, [keyword])
 
   const handleFilterChange = (event) => {

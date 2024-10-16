@@ -29,23 +29,23 @@ const Container = ({ profile, repos }) =>
         </div>
         <div className="container__main">
             <div className="main__repos">
-                {Array.isArray(repos) && repos.length > 0 ? (
+                {repos.length > 0 ? (
                     repos.map(item => 
                     <div className="repos__repo">
                     <p className="repo__name">{item.name}</p>
                     <p className="repo__description">Community health files for the @GitHub organization</p>
                     <div className="repo__buttons">
-                        <div className="buttons__div">
+                        {item.license != null ? (<div className="buttons__div">
                             <img src={chield} alt="License icon" />
-                            <p className='div__text'>MIT</p>
-                        </div>
+                            <p className='div__text'>{item.license.spdx_id}</p>
+                        </div>) : (<></>)}
                         <div className="buttons__div">
                             <img src={fork} alt="Fork icon" />
-                            <p className="div__text">2,369</p>
+                            <p className="div__text">{item.forks}</p>
                         </div>
                         <div className="buttons__div">
                             <img src={fav} alt="Fav icon" />
-                            <p className="div__text">703</p>
+                            <p className="div__text">{item.stargazers_count}</p>
                         </div>
                         <div className="buttons__div">
                             <p className='update__text'>updated 4 days ago</p>
@@ -59,7 +59,7 @@ const Container = ({ profile, repos }) =>
             }
             </div>
             <div className="repos__link">
-                <a href="#" className="link__a">View all repositories</a>
+                <a href={profile.html_url} target="_blank" className="link__a">View all repositories</a>
             </div>
         </div>
     </div>

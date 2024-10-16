@@ -312,6 +312,8 @@ html {
   text-decoration: none;
   color: #CDD5E0;
   opacity: 0.7;
+
+  margin-bottom: 50px;
 }
 
 .link__a:hover {

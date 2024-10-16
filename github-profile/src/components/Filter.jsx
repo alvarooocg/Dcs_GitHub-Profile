@@ -1,5 +1,4 @@
 import SearchLogo from '../assets/dccl--javascript-github-profile/dccl--javascript-github-profile/Search.svg'
-import logo from '../assets/github_logo.png'
 
 const Filter = ({ filter, handleFilterChange, profile }) => 
     <form className="header__form">

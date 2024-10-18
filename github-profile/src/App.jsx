@@ -34,9 +34,7 @@ function App() {
 
   const handleFilterChange = (event) => {
     setKeyword(event.target.value)
-  } 
-
-  // const filteredProfiles = profiles.filter()
+  }
 
   return (
     <div className='body'>

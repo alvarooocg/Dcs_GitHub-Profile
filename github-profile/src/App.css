@@ -15,7 +15,7 @@ html {
 }
 
 .header {
-  height: 30%;
+  min-height: 30vh;
   width: 100%;
 
   background: url('./assets/dccl--javascript-github-profile/dccl--javascript-github-profile/hero-image-github-profile.png') center no-repeat;
@@ -98,8 +98,6 @@ html {
   height: 80px;
 
   background-color: #111729;
-
-  visibility: hidden;
 
   display: flex;
   align-items: center;

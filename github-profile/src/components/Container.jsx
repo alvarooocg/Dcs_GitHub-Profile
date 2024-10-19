@@ -31,30 +31,30 @@ const Container = ({ profile, repos }) =>
             <div className="main__repos">
                 {repos.length > 0 ? (
                     repos.map(item => 
-                    <div className="repos__repo">
-                    <p className="repo__name">{item.name}</p>
-                    <p className="repo__description">Community health files for the @GitHub organization</p>
-                    <div className="repo__buttons">
-                        {item.license != null ? (<div className="buttons__div">
-                            <img src={chield} alt="License icon" />
-                            <p className='div__text'>{item.license.spdx_id}</p>
-                        </div>) : (<></>)}
-                        <div className="buttons__div">
-                            <img src={fork} alt="Fork icon" />
-                            <p className="div__text">{item.forks}</p>
+                    <a className="repos__repo" href={item.html_url} target='_blank'>
+                        <p className="repo__name">{item.name}</p>
+                        <p className="repo__description">{item.description}</p>
+                        <div className="repo__buttons">
+                            {item.license != null ? (<div className="buttons__div">
+                                <img src={chield} alt="License icon" />
+                                <p className='div__text'>{item.license.spdx_id}</p>
+                            </div>) : (<></>)}
+                            <div className="buttons__div">
+                                <img src={fork} alt="Fork icon" />
+                                <p className="div__text">{item.forks}</p>
+                            </div>
+                            <div className="buttons__div">
+                                <img src={fav} alt="Fav icon" />
+                                <p className="div__text">{item.stargazers_count}</p>
+                            </div>
+                            <div className="buttons__div">
+                                <p className='update__text'>updated 4 days ago</p>
+                            </div>
                         </div>
-                        <div className="buttons__div">
-                            <img src={fav} alt="Fav icon" />
-                            <p className="div__text">{item.stargazers_count}</p>
-                        </div>
-                        <div className="buttons__div">
-                            <p className='update__text'>updated 4 days ago</p>
-                        </div>
-                    </div>
-                </div>
+                    </a>
                 )
             ) : (
-                <p>No repositories found.</p> /* Mensaje alternativo */
+                <p>No repositories found.</p>
             )
             }
             </div>

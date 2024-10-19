@@ -1,16 +1,17 @@
 import SearchLogo from '../assets/dccl--javascript-github-profile/dccl--javascript-github-profile/Search.svg'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const Filter = ({ filter, handleFilterChange, profile }) => {
     const [isFound, setIsFound] = useState(false)
 
     console.log('PROFILE => ' + profile.login)
 
-    if (profile.login != undefined) {
-        setIsFound(true)
-    } else {
-        setIsFound(false)
-    }
+    useEffect(() => {
+        if (profile !== undefined)
+            setIsFound(true)
+        else if (profile === undefined)
+            setIsFound(false) 
+    }, [profile])
 
     return (
         <form className="header__form">
@@ -29,7 +30,7 @@ const Filter = ({ filter, handleFilterChange, profile }) => {
                 </div>
             </div>
 
-            { isFound (
+            { isFound ? <></> : (
                 <div className="form__result">
                     <img src={profile.avatar_url} alt="Profile photo" className="result__img" />
                     <div className="result__text">
@@ -37,7 +38,7 @@ const Filter = ({ filter, handleFilterChange, profile }) => {
                         <p className="text__description">{profile.bio}</p>
                     </div>
                 </div>
-            ) }
+            )}
         </form>
     )
 }

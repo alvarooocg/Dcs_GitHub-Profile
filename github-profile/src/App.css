@@ -319,3 +319,54 @@ html {
   color: white;
   text-decoration: underline;
 }
+
+@media only screen and (max-width: 1350px) {
+  .header__stats {
+    flex-direction: column;
+
+    margin-top: 150px;
+  }
+
+  .container__main {
+    margin-top: 150px;
+  }
+
+  .header__username {
+    padding-top: 10px;
+    
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 920px) {
+  .header {
+    background-size: cover;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .header__profile {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+
+    margin: 0 auto;
+  }
+
+  .header__stats {
+    margin-top: 200px;
+  }
+
+  .header__username {
+    display: none;
+  }
+
+  .container__main {
+    margin-top: 200px;
+  }
+
+  .repos__repo {
+    height: 200px;
+  }
+}

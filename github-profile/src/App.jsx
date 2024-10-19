@@ -4,6 +4,8 @@ import './App.css'
 import Header from './components/Header'
 import Container from './components/Container'
 
+const AUTH_TOKEN = import.meta.env.VITE_AUTH_TOKEN
+
 function App() {
 
   const [keyword, setKeyword] = useState('github')
@@ -11,7 +13,11 @@ function App() {
   const [repos, setRepos] = useState([])
 
   useEffect(() => {
-     fetch(`https://api.github.com/users/${keyword}`)
+     fetch(`https://api.github.com/users/${keyword}`, {
+      headers: {
+        'Authorization': `token ${AUTH_TOKEN}`
+      }
+     })
       .then(response => response.json())
       .then(data => {
         setProfile(data)
@@ -22,7 +28,11 @@ function App() {
   }, [keyword])
 
   useEffect(() => {
-    fetch(`https://api.github.com/users/${keyword}/repos`)
+    fetch(`https://api.github.com/users/${keyword}/repos`, {
+      headers: {
+        'Authorization': `token ${AUTH_TOKEN}`
+      }
+    })
     .then(response => response.json())
     .then(data => {
       setRepos([data][0].slice(0, 4))

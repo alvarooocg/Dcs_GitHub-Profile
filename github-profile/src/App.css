@@ -5,6 +5,7 @@
 }
 
 html {
+  background-color: #4A5567;
   font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 16px;
 }
@@ -269,6 +270,8 @@ html {
   justify-content: space-between;
 
   color: #CDD5E0;
+
+  text-decoration: none;
 }
 
 .repos__repo:hover {

@@ -105,6 +105,12 @@ html {
   gap: 20px;
 
   border-radius: 10px;
+
+  text-decoration: none;
+}
+
+.form__result:hover {
+  cursor: pointer;
 }
 
 .result__img {
@@ -265,6 +271,12 @@ html {
   color: #CDD5E0;
 }
 
+.repos__repo:hover {
+  border: 2px solid white;
+
+  background: linear-gradient(90deg, #1D1B48, #111729);
+}
+
 .repo__name {
   font-size: 1.25rem;
 }
@@ -315,6 +327,8 @@ html {
 }
 
 .link__a:hover {
+  cursor: pointer;
+
   transition: all 1s ease;
   color: white;
   text-decoration: underline;

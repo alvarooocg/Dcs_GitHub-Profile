@@ -10,6 +10,7 @@ function App() {
 
   const [keyword, setKeyword] = useState('github')
   const [profile, setProfile] = useState({})
+  const [searchProfile, setSearchProfile] = useState({})
   const [repos, setRepos] = useState([])
 
   useEffect(() => {

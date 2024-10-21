@@ -10,11 +10,17 @@ function App() {
 
   const [keyword, setKeyword] = useState('github')
   const [profile, setProfile] = useState({})
-  const [searchProfile, setSearchProfile] = useState({})
   const [repos, setRepos] = useState([])
+  const [toSearch, setToSearch] = useState('')
 
   useEffect(() => {
-     fetch(`https://api.github.com/users/${keyword}`, {
+    if (keyword === '') {
+      setToSearch('github')
+    } else {
+      setToSearch(keyword)
+    }
+
+     fetch(`https://api.github.com/users/${toSearch}`, {
       headers: {
         'Authorization': `token ${AUTH_TOKEN}`
       }
@@ -29,7 +35,7 @@ function App() {
   }, [keyword])
 
   useEffect(() => {
-    fetch(`https://api.github.com/users/${keyword}/repos`, {
+    fetch(`https://api.github.com/users/${toSearch}/repos`, {
       headers: {
         'Authorization': `token ${AUTH_TOKEN}`
       }

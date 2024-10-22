@@ -11,7 +11,7 @@ function App() {
   const [keyword, setKeyword] = useState('github')
   const [profile, setProfile] = useState({})
   const [repos, setRepos] = useState([])
-  const [toSearch, setToSearch] = useState('')
+  const [toSearch, setToSearch] = useState('github')
 
   useEffect(() => {
     if (keyword === '') {
